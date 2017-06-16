@@ -7,7 +7,7 @@ npm install aotoo-react-treex  --save
 ```
 
 ## USAGE  
-Depends on aotoo this library  
+Depends on aotoo this library, `Aotoo` is a global variable
 
 ```jsx
 import Aotoo from 'aotoo'

@@ -1,6 +1,6 @@
 {
   "name": "aotoo-react-treex",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "react tree component that based on the aotoo",
   "main": "index.js",
   "scripts": {
