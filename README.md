@@ -1,9 +1,9 @@
 # aotoo-react-treex
 
 ## Install
-```
+```bash
 // install
-npm install aotoo-react-treex  --save
+yarn add aotoo-react-treex
 ```
 
 ## USAGE  
