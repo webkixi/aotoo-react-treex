@@ -8,7 +8,7 @@ npm install aotoo-react-treex  --save
 
 ## USAGE  
 
-```
+```jsx
 import Aotoo from 'aotoo'
 import treex from 'aotoo-react-treex'
 
@@ -51,7 +51,7 @@ Aotoo.render(box, id)
 ## API  
 
 #### $update(opts)
-```
+```jsx
 // after `treeList.render(id)`，You can dynamically update the structure after you update the data(_data)
 
 treeList.$update({
@@ -71,7 +71,7 @@ treeList.$update({
 The above operation causes the structure to be re-rendered and the callback method `rendered` is executed again  
 
 #### $append(opts)
-```
+```jsx
 // after `treeList.render(id)`
 
 treeList.$append({
@@ -90,7 +90,7 @@ treeList.$append({
 access the above operation, you can dynamically append the structure after you append the data(_data)  
 
 #### $prepend(opts)
-```
+```jsx
 // after `treeList.render(id)`
 
 treeList.$prepend({
@@ -109,7 +109,7 @@ treeList.$prepend({
 access the above operation, you can dynamically prepend the structure after you prepend the data(_data)    
 
 #### $delete(opts)
-```
+```jsx
 // after `treeList.render(id)`
 
 treeList.$delete({
@@ -127,7 +127,7 @@ access the above operation, you can dynamically delete the structure after you d
 
 ## List status
 #### $loading(opts)
-```
+```jsx
 // after `treeList.render(id)`
 
 treeList.$loading({
@@ -137,7 +137,7 @@ treeList.$loading({
 access the above operation, will show loading bar
 
 #### $over(opts)
-```
+```jsx
 // after `treeList.render(id)`
 
 treeList.$over({
@@ -147,7 +147,7 @@ treeList.$over({
 access the above operation, will show over bar
 
 #### $pulldown(opts)
-```
+```jsx
 // after `treeList.render(id)`
 
 treeList.$pulldown({
@@ -157,7 +157,7 @@ treeList.$pulldown({
 access the above operation, will show pulldown bar
 
 #### $trigger(opts)
-```
+```jsx
 // after `treeList.render(id)`
 
 treeList.$trigger({
