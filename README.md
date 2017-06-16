@@ -7,6 +7,7 @@ npm install aotoo-react-treex  --save
 ```
 
 ## USAGE  
+Depends on aotoo this library  
 
 ```jsx
 import Aotoo from 'aotoo'
