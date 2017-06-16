@@ -1,0 +1,26 @@
+{
+  "name": "aotoo-react-treex",
+  "version": "1.0.0",
+  "description": "react tree component that based on the aotoo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/webkixi/aotoo.git"
+  },
+  "keywords": [
+    "react",
+    "redux",
+    "tree",
+    "component",
+    "react-component"
+  ],
+  "author": "webkixi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webkixi/aotoo/issues"
+  },
+  "homepage": "https://github.com/webkixi/aotoo#readme"
+}
