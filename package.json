@@ -1,20 +1,14 @@
 {
   "name": "aotoo-react-treex",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "react tree component that based on the aotoo",
-  "main": "index.js",
+  "main": "./build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/webkixi/aotoo-react-treex.git"
-  },
-  "dependencies": {
-    "fkp-sax": "^1.5.10",
-    "lodash.clonedeep": "^4.5.0",
-    "lodash.merge": "^4.6.0",
-    "lodash.uniqueid": "^4.0.1",
   },
   "devDependencies": {
     "babel-preset-stage-0": "^6.24.1",

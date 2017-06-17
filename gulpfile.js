@@ -9,12 +9,11 @@ var gulp=require("gulp"),
 
 gulp.task("default",function(){
   pump([
-      gulp.src("./index.js"),
-      sourcemaps.init(),
-      babel({presets:[breact, es2015, stage0]}),
-      uglify(),
-      sourcemaps.write('./maps'),
-      gulp.dest('./build')
-    ]
-  );
+    gulp.src("./index.js"),
+    sourcemaps.init(),
+    babel({presets:[breact, es2015, stage0]}),
+    uglify(),
+    sourcemaps.write('./maps'),
+    gulp.dest('./build')
+  ]);
 });
