@@ -270,7 +270,14 @@ function App(opts){
       const index = findIndex(data, o=>o.idf==idf)
       indexcode.push(index)
       let groups = _getGroups(data||[], idf)
-      if (son) return groups
+      // if (son) return groups
+      if (son) {
+        let temp = []
+        indexcode.forEach( $id => {
+          temp.push(data[$id])
+        })
+        return temp
+      }
       return indexcode
     },
 
