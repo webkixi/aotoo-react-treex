@@ -17,27 +17,21 @@ const bars = {
 }
 
 function getBehaviorBar(type, val){
-  switch (type) {
-    case 'pulldown':
-      if (val) {
-        return typeof val == 'boolean' ? bars.pulldown : val
-      }
-      break;
-    case 'loading':
-      if (val) {
-        return typeof val == 'boolean' ? bars.loading : val
-      }
-      break;
-    case 'over':
-      if (val) {
-        return typeof val == 'boolean' ? bars.over : val
-      }
-      break;
-    case 'trigger':
-      if (val) {
-        return typeof val == 'boolean' ? bars.trigger : val
-      }
-      break;
+  if (val) {
+    switch (type) {
+      case 'pulldown':
+        return val == true ? bars.pulldown : val
+        break;
+      case 'loading':
+        return val == true ? bars.loading : val
+        break;
+      case 'over':
+        return val == true ? bars.over : val
+        break;
+      case 'trigger':
+        return val == true ? bars.trigger : val
+        break;
+    }
   }
 }
 
@@ -106,10 +100,6 @@ const Actions = {
         return state
       }
     } else {
-      if (opts.query) {
-
-      }
-
       let oriData = data[index]
       oriData = merge(oriData, opts.data)
       return state
@@ -152,7 +142,7 @@ const Actions = {
     let state = this.curState
     let data = state.data
 
-    if (opts.index) {
+    if (opts.index || opts.index == 0) {
       data.splice(opts.index, 1);
     }
     else if(opts.query) {
@@ -227,7 +217,7 @@ function _getGroups(dataAry, idf){
   sons.forEach( (son, ii) => {
     if (son.idf && idrecode.indexOf(son.idf) == -1) {
       idrecode.push(son.idf)
-      nsons = nsons.concat(_getGroups(dataAry, son.idf))
+      nsons = nsons.concat(son).concat(_getGroups(dataAry, son.idf))
     } else {
       nsons = nsons.concat(son)
     }
@@ -263,18 +253,25 @@ function findParents(dataAry, idf){
 function App(opts){
   const treeX = Aotoo(Tree, Actions, opts)
   treeX.extend({
-    getGroups: function(data, idf, son){
+    /**
+     * data {Array} 完整的数据
+     * idf  {String}  指定父级id
+     * feather  {Boolean}  true = 是否返回完整数据，false = 返回完整的ID
+     */
+    getGroups: function(data, idf, feather){
       data = data||this.data||[]
       idrecode = []
       indexcode = []
       const index = findIndex(data, o=>o.idf==idf)
       indexcode.push(index)
       let groups = _getGroups(data||[], idf)
-      // if (son) return groups
-      if (son) {
+      // if (feather) return groups
+      if (feather) {
         let temp = []
         indexcode.forEach( $id => {
-          temp.push(data[$id])
+          let sonFeather = data[$id]
+          sonFeather['__index'] = $id
+          temp.push(sonFeather)
         })
         return temp
       }
