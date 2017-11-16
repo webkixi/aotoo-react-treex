@@ -40,11 +40,11 @@ class Tree extends React.Component {
     super(props)
     this.preRender = this::this.preRender
     this.state = {
-      data: this.props.data||[],
-      pulldown: false,
-      loading: false,
-      trigger: false,
-      over: false
+      data: this.props.data || [],
+      pulldown: this.props.pulldown || false,
+      loading: this.props.loading || false,
+      trigger: this.props.trigger || false,
+      over: this.props.over || false
     }
   }
 
