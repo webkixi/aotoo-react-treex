@@ -115,7 +115,7 @@ const Actions = {
     } else {
       data.push(opts.data)
     }
-
+    state.data = data
     return state
   },
 
@@ -128,7 +128,7 @@ const Actions = {
     } else {
       data.unshift(opts.data)
     }
-
+    state.data = data
     return state
   },
 
@@ -151,6 +151,7 @@ const Actions = {
         data.splice(index, 1)
       }
     }
+    state.data = data
     return state
   },
 
