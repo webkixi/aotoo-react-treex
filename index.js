@@ -254,6 +254,33 @@ function findParents(dataAry, idf){
 function App(opts){
   const treeX = Aotoo(Tree, Actions, opts)
   treeX.extend({
+    update: function(params) {
+      this.$update(params)
+    },
+    append: function(params) {
+      this.$append(params)
+    },
+    prepend: function(params) {
+      this.$prepend(params)
+    },
+    delete: function(params) {
+      this.$delete(params)
+    },
+    loading: function(params) {
+      this.$loading(params)
+    },
+    loaded: function(params) {
+      this.$loaded(params)
+    },
+    over: function(params) {
+      this.$over(params)
+    },
+    pulldown: function(params) {
+      this.$pulldown(params)
+    },
+    trigger: function(params) {
+      this.$trigger(params)
+    },
     /**
      * data {Array} 完整的数据
      * idf  {String}  指定父级id
