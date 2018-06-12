@@ -107,7 +107,7 @@ const Actions = {
     if (!index && index!=0) {
       if (isArray(opts.data)) {
         const [treeKeys, treeData] = setItemKey(opts.data)
-        control.saxer.set('treeKeys', treeKeys)
+        control.saxer.set('treeKeys', treeKeys||[])
         state.data = treeData
         return state
       }
@@ -130,7 +130,7 @@ const Actions = {
 
     const [treeKeys, treeData] = setItemKey(appendData)
     oTreeKeys = oTreeKeys.concat(treeKeys)
-    control.saxer.set('treeKeys', oTreeKeys)
+    control.saxer.set('treeKeys', oTreeKeys||[])
     data = data.concat(treeData)
 
     state.data = data
@@ -146,7 +146,7 @@ const Actions = {
     const [treeKeys, treeData] = setItemKey(prependData)
     oTreeKeys = treeKeys.concat(oTreeKeys)
     
-    control.saxer.set('treeKeys', oTreeKeys)
+    control.saxer.set('treeKeys', oTreeKeys||[])
     data = treeData.concat(data)
 
     state.data = data
@@ -302,9 +302,10 @@ function getHashKey(prefix="treex_") {
 }
 
 function saveTreeKeys(control, params) {
-  if (params.length) {
-    control.saxer.set('treeKeys', params)
-  }
+  params = params ? [].concat(params) : []
+  control.saxer.set('treeKeys', params)
+  // if (params.length) {
+  // }
 }
 
 function setItemKey(datas=[], depth=0, parentIndex, hkey, part) {
@@ -372,7 +373,7 @@ function setSubItemKey(item, index, hashKey, depth) {
 
 function App(opts){
   const [treeKeys, treeInitData] = setItemKey(opts.props.data)
-  opts.props.data = treeInitData
+  opts.props.data = treeInitData || []
   const treeX = Aotoo(Tree, Actions, opts)
   saveTreeKeys(treeX, treeKeys)
   treeX.extend({
@@ -380,7 +381,7 @@ function App(opts){
     setProps: function (props = {}) {
       if (props.data) {
         const [treeKeys, treeInitData] = setItemKey(props.data)
-        props.data = treeInitData
+        props.data = treeInitData || []
         saveTreeKeys(this, treeKeys)
         this.config.props = props
       }
@@ -389,7 +390,7 @@ function App(opts){
     setConfig: function (config = {}) {
       if (config.props && config.props.data) {
         const [treeKeys, treeInitData] = setItemKey(config.props.data)
-        config.props.data = treeInitData
+        config.props.data = treeInitData || []
         saveTreeKeys(this, treeKeys)
         this.config = config
       }
