@@ -165,11 +165,14 @@ const Actions = {
     let oTreeKeys = control.saxer.get('treeKeys')
 
     if (opts.index || opts.index == 0) {
-      let oriItem = data[opts.index] 
+      const tIndex = findIndex(data, {attr: {'data-treeid': opts.index}})
+
+      let oriItem = data[tIndex] 
+      // let oriItem = data[opts.index] 
       let oldKey = oriItem.key
       if (oriItem) {
         updateTreeKeys(control, oldKey)
-        data.splice(opts.index, 1);
+        data.splice(tIndex, 1);
       }
     }
     else if(opts.query) {
