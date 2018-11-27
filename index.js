@@ -408,7 +408,18 @@ function App(opts){
       this.$prepend(params)
     },
     delete: function(params) {
-      this.$delete(params)
+      const that = this
+      if (params) {
+        if (Array.isArray(params)) {
+          params.forEach(function(param) {
+            setTimeout(() => {
+              that.$delete(param)
+            }, 50);
+          })
+        } else {
+          this.$delete(params)
+        }
+      }
     },
     loading: function(params) {
       this.$loading(params)
